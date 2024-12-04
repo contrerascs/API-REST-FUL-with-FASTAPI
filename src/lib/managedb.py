@@ -10,4 +10,4 @@ class ManageDb:
         
     def write_contacts(self, new_data):
         with open(self.__address_file__,"w")as data:
-            data.write(json.dump(new_data))
+            data.write(json.dumps(new_data))
