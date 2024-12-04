@@ -7,3 +7,7 @@ class ManageDb:
     def read_contacts(self):
         with open(self.__address_file__, "r") as data:
             return json.loads(data.read())
+        
+    def write_contacts(self, new_data):
+        with open(self.__address_file__,"w")as data:
+            data.write(json.dump(new_data))
