@@ -44,12 +44,12 @@ def add_contact(new_contact:ContactModel):
     }
 
 @app.put('/api/contacts/{id_contact}')
-def update_contact(id_contact:str,new_contact:ContactModel):
+def update_contact(id_contact:str, new_contact:ContactModel):
     contacts = md.read_contacts()
 
     for index,contact in enumerate(contacts):
         if contact['id'] == id_contact:
-            contact[index] = new_contact.model_dump()
+            contacts[index] = new_contact.model_dump()
 
             md.write_contacts(contacts)
 
@@ -57,4 +57,5 @@ def update_contact(id_contact:str,new_contact:ContactModel):
                 'success': True,
                 'message': 'Update Contact'
             }
-        raise HTTPException(status_code=404, detail='Contact not found')
+
+    raise HTTPException(status_code=404, detail='Contact not found')
