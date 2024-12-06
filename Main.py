@@ -1,7 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from uuid import uuid4 as uuid
-#uvicorn Main:app --reload
 
 from src.lib.managedb import ManageDb
 from src.router.get_contacts import get_contacts
